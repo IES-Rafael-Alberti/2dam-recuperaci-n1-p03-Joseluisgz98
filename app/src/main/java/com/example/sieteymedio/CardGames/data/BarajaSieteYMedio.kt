@@ -30,7 +30,7 @@ class BarajaSieteYMedio {
                         Carta(
                             Palos.values()[palo],
                             Naipes.values()[cont],
-                            puntos.toDouble(),
+                            puntos,
                             getIdDrawable(
                                 context,
                                 "${Palos.values()[palo].toString().lowercase()}${cont}")

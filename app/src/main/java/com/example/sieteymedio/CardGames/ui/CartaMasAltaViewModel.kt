@@ -38,6 +38,7 @@ class CartaMasAltaViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun pedirCarta() {
+        _carta1.value = BarajaCartaAlta.darCarta()
         _idCarta1.value = _carta1.value?.id
         _carta2.value = BarajaCartaAlta.darCarta()
         _idCarta2.value = _carta2.value?.id
