@@ -35,17 +35,28 @@ class SieteYMedioViewModel(application: Application) : AndroidViewModel(applicat
     init {
         reiniciar()
     }
+
+    /**
+     * Funcion pora reiniciar la partida
+     */
     fun reiniciar(){
         _idCarta1Siete.value = R.drawable.bocaabajo
         _idCarta2Siete.value = R.drawable.bocaabajo
         BarajaSieteYMedio.NuevaBaraja(context)
         BarajaSieteYMedio.barajar()
     }
+
+    /**
+     * Pedir carta para el jugador 1
+     */
     fun pedirCartaJugador1() {
         _carta1Siete.value = BarajaSieteYMedio.darCarta()
         _idCarta1Siete.value = _carta1Siete.value?.id
     }
 
+    /**
+     * Pedir carta para el jugador 2
+     */
     fun pedirCartaJugador2(){
         _carta2Siete.value = BarajaSieteYMedio.darCarta()
         _idCarta2Siete.value = _carta2Siete.value?.id
@@ -58,6 +69,10 @@ class SieteYMedioViewModel(application: Application) : AndroidViewModel(applicat
         _PlantarseJ2.value = true
         comprobarGanador()
     }
+
+    /**
+     * Comprobar si hay ganador
+     */
     private fun comprobarGanador() {
         val puntosJugador1 = _carta1Siete.value?.puntos
         val puntosJugador2 = _carta2Siete.value?.puntos
