@@ -1,11 +1,9 @@
 package com.example.sieteymedio.CardGames.data
 
-
 import android.content.Context
 import com.example.sieteymedio.R
-
-
-class Baraja {
+//Creo dos barajas ya que en la carta mas alta las figuras tienen su valor mientras que en el 7 y medio el valor de las figuras es de 0.5
+class BarajaSieteYMedio {
     companion object{
 
         //variable mazo que esta compuesto por una array de cartas
@@ -17,22 +15,22 @@ class Baraja {
          */
         fun NuevaBaraja(context: Context){
             mazo.clear()
-            var puntos:Float
+            var puntos:Double
             for (palo in 0..3){
                 for (cont in 1..10){
                     when(cont){
                         8,9,10-> {
-                            puntos = 0.5F
-                        }
+                            puntos = 0.5
+                         }
                         else->{
-                            puntos = cont.toFloat()
+                            puntos = cont.toDouble()
                         }
                     }
                     mazo.add(
                         Carta(
                             Palos.values()[palo],
                             Naipes.values()[cont],
-                            puntos,
+                            puntos.toDouble(),
                             getIdDrawable(
                                 context,
                                 "${Palos.values()[palo].toString().lowercase()}${cont}")
@@ -51,7 +49,7 @@ class Baraja {
          */
         fun darCarta():Carta{
             if (mazo.isEmpty()){
-                return (Carta(Palos.PORTADA,Naipes.PORTADA,0F, R.drawable.bocaabajo))
+                return (Carta(Palos.PORTADA,Naipes.PORTADA,0.0, R.drawable.bocaabajo))
             }else{
                 return mazo.removeAt(mazo.size-1)
             }

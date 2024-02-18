@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.sieteymedio.CardGames.data.Baraja
+import com.example.sieteymedio.CardGames.data.BarajaCartaAlta
 import com.example.sieteymedio.CardGames.data.Carta
 import com.example.sieteymedio.R
 
@@ -33,14 +33,13 @@ class CartaMasAltaViewModel(application: Application) : AndroidViewModel(applica
     fun reiniciar() {
         _idCarta1.value = R.drawable.bocaabajo
         _idCarta2.value = R.drawable.bocaabajo
-        Baraja.NuevaBaraja(context)
-        Baraja.barajar()
+        BarajaCartaAlta.NuevaBaraja(context)
+        BarajaCartaAlta.barajar()
     }
 
     fun pedirCarta() {
-        _carta1.value = Baraja.darCarta()
         _idCarta1.value = _carta1.value?.id
-        _carta2.value = Baraja.darCarta()
+        _carta2.value = BarajaCartaAlta.darCarta()
         _idCarta2.value = _carta2.value?.id
         comprobarGanador()
     }

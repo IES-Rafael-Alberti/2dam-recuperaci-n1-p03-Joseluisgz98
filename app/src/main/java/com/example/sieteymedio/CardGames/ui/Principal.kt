@@ -32,8 +32,9 @@ fun MenuPrincipal(navController: NavHostController){
             Text(text = "Carta mas alta")
         }
         Spacer(modifier = Modifier.height(40.dp))
-        //Button(onClick = {navController.navigate(Routes.dosJugadores.routes) }) {
+        Button(onClick = { navController.navigate(Routes.sieteYMedio.routes) }) {
             Text(text = "Siete y medio")
         }
+    }
 }
 
